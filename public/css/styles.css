@@ -1,0 +1,1039 @@
+:root {
+  --deep-pink: #e84393;
+}
+
+/* ==========================
+   Global Reset & Typography
+   ========================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  /* background-color: transparent !important; */
+  background: #fff0f6;
+  font-family: 'Comic Neue', cursive, sans-serif;
+  line-height: 1.5;
+  padding-top: 68px
+}
+
+/* For background */
+.site-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;         
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6;        
+}
+
+
+/* ==========================
+   Everon Slide-In Animation
+   ========================== */
+.mochi-slide-in {
+  opacity: 0;
+  transform: translateY(20px);
+  display: inline-block;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.mochi-slide-in.mochi-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================
+   Slider & Intro Overlay
+   ========================== */
+.mochi-slider {
+  position: relative;
+}
+.mochi-intro-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0, 51, 0, 0.4); /* green tint */
+  z-index: 1;
+  color: #ffffff;
+}
+.mochi-intro-overlay h2,
+.mochi-intro-overlay p {
+  margin-bottom: 1rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* ==========================
+   Section Titles (Everon)
+   ========================== */
+.section-title {
+  font-size: 2rem;
+  color: #2e7d32; /* deep green */
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+  text-shadow: 1px 1px 2px rgba(46, 125, 50, 0.2);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================
+   Navigation Bar (Everon)
+   ========================== */
+.cute-nav {
+  gap: 0.5rem;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center;
+}
+
+.cute-nav .nav-link {
+  color: #2e2e2e;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  transition: background 0.3s, color 0.3s;
+  font-family: 'Roboto', sans-serif;
+}
+.cute-nav .nav-link.active,
+.cute-nav .nav-link:hover {
+  background: linear-gradient(135deg, #81c784 0%, #aed581 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ==========================
+   Buttons (Everon)
+   ========================== */
+.cute-btn {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 2px solid #a5d6a7;
+  border-radius: 50px;
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  font-family: 'Roboto', sans-serif;
+}
+.cute-btn:hover {
+  background: #a5d6a7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+.cute-btn.danger {
+  background: #ffebee;
+  color: #c62828;
+}
+.cute-btn.danger:hover {
+  background: #ef9a9a;
+}
+
+/* ==========================
+   User Welcome & Logout
+   ========================== */
+.user-welcome {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: #e8f5e9;
+  border-radius: 50px;
+}
+.user-welcome span {
+  font-weight: 600;
+  color: #388e3c;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* ==========================
+   List Button Behavior
+   ========================== */
+.cute-nav .btn {
+  white-space: nowrap;
+}
+
+
+
+/* ==========================
+   Product
+   ========================== */
+.product-card {
+  border-radius: 12px; /* Slightly less rounded */
+  overflow: hidden;
+  background: linear-gradient(145deg, #fcfdfb, #f2f7f1); /* Soft green-white gradient */
+  box-shadow: 0 6px 18px rgba(168, 185, 161, 0.15); /* Subtle green shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px); /* Less dramatic lift */
+  box-shadow: 0 10px 28px rgba(95, 116, 90, 0.15); /* Slightly stronger green shadow */
+}
+
+/* Horizontal scroll */
+.horizontal-scroll-wrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 1rem;
+  gap: 1.5rem;
+  border: 2px dotted #c9e0c1; /* Softer dotted border */
+  border-radius: 12px; /* Consistent border-radius */
+  background: linear-gradient(to right, #f8fbf7, #edf3eb); /* Muted green gradient */
+  box-shadow: 0 3px 12px rgba(168, 185, 161, 0.1); /* Subtle green shadow */
+}
+
+.product-pages {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.product-page {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-rows: auto;
+  gap: 1.5rem;
+  min-width: 100%;
+  box-sizing: border-box;
+  padding-right: 12px;
+}
+
+/* ==========================
+   Cute Input
+   ========================== */
+.cute-input {
+  border-radius: 8px; /* Slightly less rounded */
+  border: 1px solid #d4e0d0; /* Soft green border */
+  background-color: #fcfcfb; /* Very light background */
+  padding: 0.6rem 0.9rem; /* Slightly adjusted padding */
+  font-size: 0.95rem; /* Slightly smaller font */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.cute-input:focus {
+  border-color: #a8b9a1; /* Darker green on focus */
+  box-shadow: 0 0 0 0.15rem rgba(168, 185, 161, 0.2); /* Muted green glow */
+  outline: none;
+}
+
+/* ==========================
+   Cart
+   ========================== */
+.cart-float-btn {
+  position: fixed !important;
+  bottom: 2rem !important;
+  right: 2rem !important;
+  width: 60px !important; 
+  height: 60px !important;
+  font-size: 1.8rem !important;
+  background: #edf3eb;
+  color: #5f745a; 
+  border: 2px dashed #c9e0c1; 
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(95, 116, 90, 0.1); 
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  transition: background 0.3s, transform 0.2s;
+}
+.cart-float-btn:hover {
+  background: #d4e0d0; 
+  transform: scale(1.05) !important; 
+}
+
+/* Modal adjustments */
+#cartModal .modal-dialog {
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  min-height: calc(100% - 2rem); 
+  margin: 1rem auto; 
+}
+
+#cartModal .modal-content {
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fcfdfb; 
+  box-shadow: 0 6px 20px rgba(168, 185, 161, 0.1); 
+  width: 90%; 
+  max-width: 550px; 
+}
+
+/* Sprinkles background (optional texture) */
+#cartModal .modal-content::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  /* Using a very subtle, light dot pattern for texture */
+  background-image: url('data:image/svg+xml,%3Csvg width="16" height="16" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23a8b9a1" fill-opacity="0.04"%3E%3Ccircle cx="2" cy="2" r="1.5"/%3E%3Ccircle cx="14" cy="2" r="1.5"/%3E%3Ccircle cx="2" cy="14" r="1.5"/%3E%3Ccircle cx="14" cy="14" r="1.5"/%3E%3C/g%3E%3C/svg%3E');
+  opacity: 1; /* Keeping opacity at 1 with a very light color */
+  pointer-events: none;
+}
+
+#cartModal .modal-header {
+  background: linear-gradient(135deg, #a8b9a1, #c9e0c1); /* Green gradient */
+  color: #fff;
+  font-family: 'Playfair Display', serif, Arial, sans-serif; /* Elegant font */
+  font-weight: 600;
+  padding: 1.5rem; /* Adjusted padding */
+  text-align: center;
+  font-size: 1.5rem; /* Adjusted header font size */
+}
+#cartModal .empty-text {
+  font-family: 'Arial', sans-serif; /* Clean, simple font */
+  color: #5f745a; /* Muted green for empty text */
+  text-align: center;
+  margin-bottom: 1.5rem; /* Increase margin */
+  font-size: 1.1rem; /* Slightly bigger text */
+}
+
+/* Cart items */
+#cartModal .list-group-item {
+  border: none;
+  border-bottom: 1px dashed #d4e0d0; /* Softer dashed border in a muted green */
+  background: transparent;
+  font-family: 'Arial', sans-serif; /* Clean, simple font */
+  padding: 1rem 1.5rem; /* Increase padding for more space */
+  font-size: 1rem; /* Slightly bigger text */
+}
+#cartModal .list-group-item:last-child {
+  border-bottom: none;
+}
+
+/* Shipping input bubble */
+#cartModal .form-control.cute-input {
+  border-radius: 10px; /* Slightly less rounded */
+  border: 1px solid #c9e0c1; /* Softer green border */
+  background: #f7fcf6; /* Very light green background */
+  padding: 0.75rem; /* Increase padding */
+  font-size: 1rem; /* Slightly bigger text */
+}
+#cartModal .form-label {
+  font-family: 'Arial', sans-serif; /* Clean, simple font */
+  font-size: 1rem; /* Slightly bigger text */
+  margin-bottom: 0.5rem; /* Add some spacing */
+  color: #5f745a; /* Muted green for labels */
+}
+
+/* Payment toggle */
+#cartModal .btn-group .btn {
+  font-family: 'Arial', sans-serif; /* Clean, simple font */
+  border: 1px solid #d4e0d0; /* Softer green border */
+  background: #f7fcf6; /* Very light green background */
+  border-radius: 8px !important;
+  padding: 0.75rem 1rem; /* Increase padding */
+  font-size: 1rem; /* Slightly bigger text */
+  color: #5f745a; /* Muted green text */
+}
+#cartModal .btn-group .btn.active {
+  background-color: #5f745a; /* Darker muted green when active */
+  color: #fff;
+}
+
+/* Total row */
+#cartModal .total-label {
+  font-family: 'Arial', sans-serif; /* Clean, simple font */
+  color: #5f745a; /* Muted green */
+  font-size: 1.1rem; /* Slightly bigger text */
+}
+#cartModal .total-value {
+  font-family: 'Arial', sans-serif; /* Clean, simple font */
+  color: #3b5037; /* Darker green for total value */
+  font-size: 1.5rem; /* Bigger total value */
+  font-weight: bold;
+}
+
+/* Place order button: mochi-pink pill */
+#cartModal .place-order {
+  background-color: #5f745a; /* Muted dark green for the button */
+  border-radius: 50px;
+  padding: 1rem 1.5rem; /* Increase padding */
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.1rem; /* Slightly bigger text */
+  color: #fff;
+  width: 60% !important; 
+  border: none;
+  transition: background-color 0.2s, transform 0.1s;
+}
+#cartModal .place-order:hover {
+  background-color: #3b5037; /* Even darker green on hover */
+  transform: translateY(-1px); /* Less dramatic lift */
+}
+
+/* Modal footer overrides */
+#cartModal .modal-footer {
+  border-top: none;
+  padding: 1.5rem; /* Increase padding */
+  background: transparent;
+  display: flex; /* Ensure content aligns properly */
+  justify-content: flex-end; /* Push buttons to the right if any */
+}
+
+button.add-cart-btn.btn-pink {
+  font-size: 1.1rem; /* Adjusted font size, slightly smaller */
+  padding: 0.35rem 0.65rem; /* Adjusted padding */
+  line-height: 1.8;
+  border-radius: 999px;
+  background: #d4e0d0; /* Muted light green */
+  color: #5f745a; /* Darker muted green */
+  border: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button.add-cart-btn.btn-pink:hover {
+  background: #a8b9a1; /* Darker green on hover */
+  transform: translateY(-0.5px); /* Less dramatic lift */
+}
+
+/* ==========================
+   Modal Dialog
+   ========================== */
+
+.modal {
+  position: fixed !important;
+  z-index: 9999!important;
+  left: 0!important;
+  top: 0!important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: flex; /* Ensure flex properties are always applied */
+  align-items: center;
+  justify-content: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.modal-content {
+  background-color: #fcfcfb;
+  margin: 1.75rem auto !important;
+  text-align: center; /* This can be kept or removed based on specific content alignment */
+  max-width: 420px;
+  width: 90%;
+  padding: 0; /* Remove padding from modal-content to allow more control in header/body */
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(95, 116, 90, 0.1);
+  position: relative;
+  animation: popUp 0.3s ease-out;
+  overflow: hidden; /* Ensure rounded corners are respected */
+}
+
+
+
+/* Specific styling for the modal header for alignment */
+#cartModal .modal-header {
+  background: linear-gradient(135deg, #a8b9a1, #c9e0c1);
+  color: #fff;
+  font-family: 'Playfair Display', serif, Arial, sans-serif;
+  font-weight: 600;
+  padding: 1.25rem 1.5rem; /* Adjusted padding for better fit */
+  font-size: 1.5rem;
+  display: flex; /* Enable flexbox */
+  justify-content: space-between; /* Space out title and close button */
+  align-items: center; /* Vertically align items */
+}
+
+/* Adjusting the title within the header */
+#cartModal .modal-header .modal-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between text and icon */
+  font-size: 1.5rem; /* Ensure specific font size for title */
+  margin-bottom: 0; /* Remove default margin from h5 */
+  color: #fff; /* Ensure title color is white */
+}
+
+
+/* General modal close button styling */
+.modal-close {
+  position: relative; /* Change to relative if inside flex container */
+  top: auto; /* Remove fixed positioning offsets */
+  right: auto;
+  font-size: 20px;
+  color: #fff; /* White close button for the header */
+  cursor: pointer;
+  font-weight: normal;
+  background: none; /* Ensure no background */
+  border: none; /* Ensure no border */
+  padding: 0; /* Remove default button padding */
+  line-height: 1; /* For better icon alignment */
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #f0f0f0; /* Slightly lighter white on hover */
+}
+
+/* Specific styling for the close icon if it's a span/svg */
+.mochi-close-icon {
+    width: 20px; /* Adjust size to fit header better */
+    height: 20px;
+    display: block; /* Ensure it's a block element for sizing */
+    transition: transform 0.2s ease;
+    color: inherit; /* Inherit color from parent (.modal-close) */
+}
+.modal-close:hover .mochi-close-icon {
+    transform: rotate(90deg) scale(1.1);
+}
+
+
+/* Modal body adjustments */
+#cartModal .modal-body {
+  padding: 1.5rem 1.5rem 1.25rem; /* Consistent padding inside the body */
+  text-align: left; /* Align text content to the left by default */
+}
+
+#cartModal .empty-text {
+  font-family: 'Arial', sans-serif;
+  color: #5f745a;
+  text-align: center; /* Keep this centered as it's a message */
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* Cart items */
+#cartModal .list-group-item {
+  border: none;
+  border-bottom: 1px dashed #d4e0d0;
+  background: transparent;
+  font-family: 'Arial', sans-serif;
+  padding: 0.75rem 0; /* Adjusted padding to better align with the image, no horizontal padding */
+  font-size: 1rem;
+  display: flex; /* Enable flexbox for item alignment */
+  justify-content: space-between; /* Space out item name and price/quantity */
+  align-items: center; /* Vertically align items */
+}
+#cartModal .list-group-item:last-child {
+  border-bottom: none;
+}
+
+/* Shipping input bubble */
+#cartModal .form-control.cute-input {
+  border-radius: 10px;
+  border: 1px solid #c9e0c1;
+  background: #f7fcf6;
+  padding: 0.75rem;
+  font-size: 1rem;
+  width: 100%; /* Ensure it takes full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  text-align: left; /* Align input text to the left */
+}
+#cartModal .form-label {
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+  margin-bottom: 0.4rem; /* Adjusted margin */
+  color: #5f745a;
+  display: block; /* Ensure label is a block element for margin-bottom to work */
+  text-align: left; /* Align label text to the left */
+}
+
+/* Payment toggle */
+#cartModal .btn-group {
+  display: flex; /* Ensure button group is a flex container */
+}
+
+#cartModal .btn-group .btn {
+  flex: 1; /* Make buttons take equal width */
+  font-family: 'Arial', sans-serif;
+  border: 1px solid #d4e0d0;
+  background: #f7fcf6;
+  border-radius: 8px !important;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: #5f745a;
+  text-align: center; /* Center button text */
+}
+
+#cartModal .btn-group .btn.active {
+  background-color: #5f745a;
+  color: #fff;
+}
+
+/* Total row */
+#cartModal .total-label {
+  font-family: 'Arial', sans-serif;
+  color: #5f745a;
+  font-size: 1.1rem;
+}
+#cartModal .total-value {
+  font-family: 'Arial', sans-serif;
+  color: #3b5037;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Place order button */
+#cartModal .place-order {
+  background-color: #5f745a; /* Darker muted green */
+  border-radius: 8px; /* Sharper, more modern corners, but still soft */
+  padding: 0.75rem 1.5rem; /* Slightly more horizontal padding for better balance */
+  font-family: 'Arial', sans-serif; /* Keep a clean, readable font */
+  font-size: 1rem; /* Consistent font size */
+  color: #fff; /* White text */
+  width: 100%;
+  border: none;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease; /* Add box-shadow transition */
+  box-shadow: 0 4px 10px rgba(95, 116, 90, 0.2); /* Subtle initial shadow */
+}
+#cartModal .place-order:hover {
+  background-color: #3b5037; /* Even darker green on hover */
+  transform: translateY(-2px); /* Gentle lift on hover */
+  box-shadow: 0 6px 15px rgba(95, 116, 90, 0.3); /* Slightly stronger shadow on hover */
+}
+
+/* Modal footer overrides */
+#cartModal .modal-footer {
+  border-top: none;
+  padding: 1.25rem 1.5rem; /* Consistent padding */
+  background: transparent;
+  display: flex;
+  justify-content: center; /* Center the button if it's the only item */
+}
+
+/* Keyframes for popUp animation (kept as is) */
+@keyframes popUp {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* ==========================
+   Authetication
+   ========================== */
+
+.auth-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+}
+.auth-container {
+  font-family: 'Fredoka', sans-serif;
+  background: #fff5f8;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  width: 360px;
+  overflow: hidden;
+}
+.auth-tabs { display: flex; background: #5f745a; }
+.auth-tab {
+  flex: 1; padding: 12px; text-align: center;
+  cursor: pointer; color: #fff; font-weight: 600;
+  transition: background 0.2s;
+}
+.auth-tab--active { background: #5f745a; }
+.auth-forms { padding: 24px; background: #ffffff; }
+.auth-form { display: none; }
+.auth-form--active { display: block; }
+.auth-field { margin-bottom: 16px; }
+.auth-field label {
+  display: block; margin-bottom: 6px;
+  color: #333; font-size: 14px;
+}
+.auth-field input {
+  width: 100%; padding: 10px 12px;
+  border: 2px solid #ffd6e0; border-radius: 12px;
+  font-size: 14px; background: #fffafa;
+}
+.auth-field input:focus {
+  border-color: #5f745a; outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(255,105,135,0.25);
+}
+.auth-btn {
+  width: 100%; padding: 12px;
+  background-color: #5f745a; color: #fff;
+  font-size: 16px; border: none; border-radius: 24px;
+  cursor: pointer; transition: transform 0.1s ease;
+}
+.auth-btn:hover { transform: scale(1.03); background-color: #5f745a; }
+.auth-toggle {
+  text-align: center; margin-top: 12px;
+  font-size: 14px; color: #5f745a;
+}
+.auth-toggle span { text-decoration: underline; cursor: pointer; }
+.auth-icon {
+  display: block; margin: 0 auto 16px;
+  width: 64px; height: 64px;
+}
+
+/* ===========================
+   Access Denied
+   =========================== */
+
+.denied-page {
+  background: linear-gradient(135deg, #ffe3e3 0%, #fff0f6 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.denied-container {
+  text-align: center;
+  padding: 2rem;
+  background: #ffffffcc;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(232, 67, 147, 0.2);
+  max-width: 360px;
+  margin: 1rem;
+}
+
+.denied-icon {
+  width: 120px;
+  margin-bottom: 1rem;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+.denied-container h1 {
+  font-family: 'Fredoka', cursive;
+  color: #e84393;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.denied-container p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ==========================
+   Search Bar
+   ========================== */
+#product-search {
+  /* base look */
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: 2px solid #a8b9a1; /* Softer green from Everon logo/accents */
+  border-radius: 50px;
+  background: #f7fcf6; /* Very light, almost white green */
+  font-size: 1rem;
+  font-family: 'Arial', sans-serif; /* A more common and clean font */
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+/* focus glow */
+#product-search:focus {
+  outline: none;
+  border-color: #c9e0c1; /* Lighter green */
+  box-shadow: 0 0 0 0.2rem rgba(168, 185, 161, 0.25); /* Subtle green glow */
+}
+
+/* suggestions container */
+#search-suggestions {
+  margin-top: 0.2rem;
+  list-style: none;
+  padding: 0.2rem 0;
+  background: #fdfefc; /* Slightly off-white */
+  border: 2px solid #a8b9a1; /* Softer green */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(168, 185, 161, 0.1); /* Subtle green shadow */
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* each suggestion */
+#search-suggestions li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif; /* Consistent clean font */
+  color: #5f745a; /* Darker muted green */
+  transition: background 0.2s, color 0.2s;
+}
+
+/* hover / active suggestion */
+#search-suggestions li:hover,
+#search-suggestions li:active {
+  background: linear-gradient(135deg, #c9e0c1 0%, #a8b9a1 100%); /* Green gradient */
+  color: #fff;
+  border-radius: 8px;
+}
+
+/* hide scrollbar but still scrollable (WebKit) */
+#search-suggestions::-webkit-scrollbar {
+  width: 6px;
+}
+#search-suggestions::-webkit-scrollbar-thumb {
+  background: rgba(168, 185, 161, 0.3); /* Transparent green */
+  border-radius: 3px;
+}
+
+/* on small screens, ensure suggestions are full-width */
+@media (max-width: 576px) {
+  #search-suggestions {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* ==========================
+   Product info
+   ========================== */
+
+.mochi-modal .modal-dialog {
+  width: 80vw;
+  margin: 3rem auto;
+  height: auto;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+}
+
+.mochi-modal .modal-content {
+  background: #fcfcfb; /* Very light, clean background */
+  border-radius: 2rem; /* Slightly less rounded than mochi */
+  overflow: hidden;
+  padding: 0;
+  border: 4px solid #d4e0d0; /* Soft, light green border */
+  box-shadow: 0 20px 40px rgba(168, 185, 161, 0.1); /* Subtle green shadow */
+  transition: all 0.3s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.mochi-sprinkles {
+  height: 24px; /* Reduced height for a more subtle look */
+  background: repeating-linear-gradient(
+    45deg,
+    #dbead7 0 6px, /* Muted, earthy tones */
+    #e8f2e4 6px 12px,
+    #f2f7f1 12px 18px,
+    #f8fbf7 18px 24px
+  );
+  border-bottom: 2px solid #a8b9a1; /* A subtle border to define the top */
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: none;
+  border: none;
+  z-index: 20;
+}
+.mochi-close-icon {
+  width: 32px; /* Slightly smaller icon */
+  height: 32px;
+  transition: transform 0.2s ease;
+  color: #5f745a; /* Muted green for the icon */
+}
+.modal-close:hover .mochi-close-icon {
+  transform: rotate(90deg) scale(1.1); /* A cleaner rotation on hover */
+  color: #798d75; /* Slightly lighter green on hover */
+}
+
+.mochi-modal .modal-body {
+  padding: 2.5rem 2rem 2rem; /* Reduced padding for a less 'chubby' look */
+  border: 3px dashed #c9e0c1; /* Softer dashed border */
+  border-top: none;
+}
+
+.modal-img {
+  max-height: 70vh; /* Slightly reduced max-height */
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1.5rem; /* Reduced margin */
+  border-radius: 1.5rem; /* Slightly less rounded */
+  animation: none; /* Remove floating animation for a calmer feel */
+  box-shadow: 0 8px 20px rgba(168, 185, 161, 0.15); /* More subtle shadow */
+  object-fit: contain;
+}
+
+.modal-title {
+  font-size: 2.5rem !important; /* Smaller, more elegant title */
+  font-weight: 600; /* Slightly less bold */
+  line-height: 1.3;
+  color: #3b5037; /* Darker, more sophisticated green */
+  font-family: 'Playfair Display', serif, Arial, sans-serif; /* A more elegant serif font */
+  text-align: center;
+  word-break: break-word;
+}
+
+.mochi-title-bubble {
+  display: inline-block;
+  background: #f7fcf6; /* Very light green background */
+  padding: 0.8rem 1.8rem; /* Adjusted padding */
+  border-radius: 2.5rem; /* Slightly less rounded */
+  box-shadow: 0 4px 12px rgba(168, 185, 161, 0.15); /* More subtle shadow */
+  border: 2px dashed #d4e0d0; /* Soft dashed border */
+  font-size: 2.2rem; /* Adjusted font size */
+  font-family: 'Playfair Display', serif, Arial, sans-serif; /* Consistent elegant font */
+  color: #3b5037; /* Darker green */
+  text-align: center;
+}
+
+.modal-text {
+  background: #fdfefc; /* Very light clean background */
+  border: 3px dashed #c9e0c1; /* Softer dashed border */
+  border-radius: 1.5rem; /* Slightly less rounded */
+  padding: 1.5rem; /* Adjusted padding */
+  font-size: 1.1rem; /* Slightly smaller font size */
+  line-height: 1.7;
+  font-family: 'Arial', sans-serif; /* Clean body font */
+  max-height: 30vh; /* Reduced max-height */
+  overflow-y: auto;
+  margin-bottom: 1.2rem; /* Reduced margin */
+}
+
+.modal-price {
+  font-size: 1.8rem; /* Slightly smaller price */
+  font-weight: bold;
+  color: #5f745a; /* Muted green for price */
+  text-align: center;
+  margin-bottom: 1.5rem; /* Reduced margin */
+}
+
+
+/* ==========================
+   Shopping Cart
+   ========================== */
+
+.add-cart-btn {
+  background-color: #5f745a; /* Muted green for button */
+  color: white;
+  padding: 1.2rem 2.4rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(232, 67, 147, 0.3);
+  transition: all 0.25s ease;
+}
+.add-cart-btn:hover {
+  transform: translateY(-2px); /* Less dramatic hover effect */
+  background-color: #798d75; /* Lighter green on hover */
+  box-shadow: 0 10px 25px rgba(95, 116, 90, 0.35); /* Slightly stronger shadow on hover */
+}
+
+.modal[style*="display: none"] {
+  pointer-events: none !important;
+}
+
+/* Removed @keyframes floatMochi as animation is removed */
+
+/* Center modal vertically if tall enough */
+@media (min-height: 600px) {
+  .mochi-modal .modal-dialog {
+    display: table;
+    height: 100%;
+  }
+  .mochi-modal .modal-content {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+/* Horizontal scroller becomes vertical list on <768px */
+@media (max-width: 767px) {
+  .horizontal-scroll-wrapper {
+    display: block !important;
+    overflow-x: visible !important;
+    border: none;
+    padding-bottom: 0;
+  }
+  .horizontal-scroll-wrapper .col-sm-6 {
+    width: 100% !important;
+    margin-bottom: 1rem;
+  }
+}
+
+/* =====================
+   Mobile Responsive 
+   ===================== */
+
+/* Hero slider: cap its height & scaling */
+@media (max-width: 992px) {
+  .slider,
+  .mochi-slider {
+    min-height: 50vh;    /* shorter on tablets */
+  }
+  .mochi-intro-overlay {
+    padding: 1.5rem !important;
+  }
+  .mochi-intro-overlay h2 {
+    font-size: 1.6rem;
+  }
+  .mochi-intro-overlay p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Make your horizontal scroller stack as cards */
+@media (max-width: 767px) {
+  .horizontal-scroll-wrapper {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr; /* two across on small phones */
+    gap: 1rem;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+  }
+  .horizontal-scroll-wrapper .product-card {
+    width: 100% !important;
+  }
+}
+
+/* Hero text slide-ins: wrap softly */
+@media (max-width: 576px) {
+  .mochi-slide-in {
+    display: block;   /* each word on its own line */
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    animation: none !important;
+    text-align: center;
+  }
+}
+
+/* Admin & Product grids: stack under 768px */
+@media (max-width: 767px) {
+  .row.g-4 > .col-lg-8,
+  .row.g-4 > .col-lg-4 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Footer always sticks to bottom on short pages */
+body.d-flex.flex-column.min-vh-100 main.flex-grow-1 {
+  margin-bottom: 2rem;
+}
+
+/* Site-bg overlay: switch off on mobile for clarity */
+@media (max-width: 576px) {
+  .site-bg {
+    display: none;
+  }
+}
+
+/* Adjust font sizes globally */
+@media (max-width: 768px) {
+  .section-title { font-size: 1.6rem; }
+}
+@media (max-width: 576px) {
+  .section-title { font-size: 1.3rem; }
+}
+
