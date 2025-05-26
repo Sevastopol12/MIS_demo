@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentDay = String(today.getDate()).padStart(2, '0');
     const todayDateString = `${currentYear}-${currentMonth}-${currentDay}`;
 
-    // Calculate date for one month ago (or any default start date you prefer)
+    // Calculate date for one month ago
     const oneMonthAgo = new Date();
     oneMonthAgo.setMonth(today.getMonth() - 1);
     const prevYear = oneMonthAgo.getFullYear();
@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!res.ok) {
                     if (res.status === 401) {
                         alert('Your session has expired. Please log in again.');
-                        // window.location.href = '/login'; // Uncomment to redirect
                     }
                     throw new Error(`HTTP error! Status: ${res.status} - ${res.statusText}`);
                 }
@@ -94,23 +93,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     // If it's an Invalid Date, it might be the MM/DD/YYYY format
                     if (isNaN(orderDateTime.getTime())) {
                         // Try parsing MM/DD/YYYY HH:MM:SS directly
-                        // Note: The Date constructor might be finicky with timezones if not ISO
                         // For example: "05/25/2025 12:30:00"
                         let commonFormatString = `${o.date} ${timePart}`;
                         orderDateTime = new Date(commonFormatString);
 
-                        // Still invalid? Log to understand the exact string
                         if (isNaN(orderDateTime.getTime())) {
                             console.error(`Invalid Date encountered for order ID: ${o.id}. Date string: "${o.date}", Time string: "${o.time}". Attempted full string: "${isoDateTimeString}" and "${commonFormatString}".`);
                             orderDateTime = new Date(); // Fallback to current date/time to prevent breaking display
                         }
                     }
                 } else {
-                    // If o.date is missing or not a string, fallback to current date/time
                     console.warn(`Order ${o.id} has missing or invalid 'date' property:`, o.date);
                     orderDateTime = new Date();
                 }
-                // --- End Robust Date/Time Parsing ---
 
 
                 const displayDate = orderDateTime.toLocaleDateString();

@@ -230,4 +230,11 @@ async function seed() {
   console.log('✅ All products inserted.');
 }
 
-seed();
+function a() {
+  for (let i = 0; i < sampleProducts.length; i++) {
+    const product = sampleProducts[i];
+    console.log(`${product.price}`);
+  }
+}
+
+a();
